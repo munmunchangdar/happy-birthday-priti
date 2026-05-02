@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Priti 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #050d1a;
+    --teal-glow: #0d4a5a;
+    --soft-teal: #1a8a8a;
+    --rose: #e8a0b4;
+    --rose-deep: #c96b8a;
+    --gold: #f0c060;
+    --white: #f0f4ff;
+    --cream: #fff5f8;
+    --glass: rgba(255,255,255,0.06);
+    --glass-border: rgba(255,255,255,0.12);
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: var(--white);
+    background: var(--navy);
+  }
+
+  /* ── BG ── */
+  #bg {
+    position: fixed; inset: 0; z-index: 0;
+    background: radial-gradient(ellipse at 50% 45%, #0d3d50 0%, #071520 55%, #020810 100%);
+    transition: background 2s ease;
+  }
+  #bg.lit {
+    background: radial-gradient(ellipse at 50% 40%, #164e6a 0%, #0a2a3d 55%, #040f1e 100%);
+  }
+
+  /* ── PARTICLES ── */
+  #particles { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+  .particle {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,220,255,0.9), transparent 70%);
+    animation: floatUp linear infinite;
+    will-change: transform, opacity;
+  }
+  @keyframes floatUp {
+    0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 0.6; }
+    100% { transform: translateY(-110vh) translateX(var(--drift)) scale(0.6); opacity: 0; }
+  }
+
+  /* ── SPARKLES ── */
+  .sparkle {
+    position: fixed; pointer-events: none; z-index: 2;
+    width: 4px; height: 4px; border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 6px 2px rgba(255,255,200,0.8);
+    animation: sparkleAnim 2s ease-in-out infinite;
+  }
+  @keyframes sparkleAnim {
+    0%, 100% { transform: scale(0); opacity: 0; }
+    50%       { transform: scale(1); opacity: 1; }
+  }
+
+  /* ── FAIRY LIGHTS — fixed frame on cake section background ── */
+  #fairy-lights-cake {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 11; /* above bg, below card content */
+    opacity: 0;
+    transition: opacity 2.2s ease;
+  }
+  #fairy-lights-cake.visible { opacity: 1; }
+  #fairy-svg-frame {
+    width: 100%; height: 100%;
+    position: absolute; inset: 0;
+  }
+  .u-dot {
+    animation: uDotFlicker var(--ufd, 2s) ease-in-out infinite;
+  }
+  @keyframes uDotFlicker {
+    0%,100% { opacity: 1; filter: blur(0px); }
+    45%     { opacity: 0.45; filter: blur(0.5px); }
+    70%     { opacity: 0.88; }
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    position: fixed; inset: 0; z-index: 10;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+    padding: 40px 24px; text-align: center;
+    overflow-y: auto; overflow-x: hidden;
+    opacity: 0; pointer-events: none;
+    transition: opacity 1.4s ease;
+    /* vertically centre when content fits, scroll when it doesn't */
+    min-height: 100%;
+  }
+  .section::before {
+    content: ''; flex: 1;
+  }
+  .section::after {
+    content: ''; flex: 1;
+  }
+  .section.active { opacity: 1; pointer-events: all; }
+
+  /* ── CARD / GLASS ── */
+  .card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 44px 40px;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 8px 60px rgba(0,150,200,0.12), 0 2px 20px rgba(0,0,0,0.4);
+    max-width: 600px; width: 100%;
+    animation: none;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .title-script {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.4rem, 8vw, 5rem);
+    font-weight: 700;
+    color: var(--rose);
+    text-shadow: 0 0 30px rgba(232,160,180,0.6), 0 0 60px rgba(232,160,180,0.3);
+    line-height: 1.2;
+  }
+  .subtitle {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    font-weight: 300;
+    color: rgba(240,244,255,0.85);
+    line-height: 1.7;
+    margin-top: 16px;
+  }
+  .letter-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1rem, 2.8vw, 1.3rem);
+    color: rgba(240,244,255,0.9);
+    line-height: 1.9;
+    text-align: left;
+  }
+
+  /* ── BUTTON ── */
+  .btn {
+    margin-top: 32px;
+    padding: 14px 36px;
+    border: none; border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem; font-weight: 500;
+    color: #fff; cursor: pointer;
+    background: linear-gradient(135deg, #c96b8a, #3a8fa0);
+    box-shadow: 0 4px 24px rgba(201,107,138,0.35), 0 0 0 0 rgba(201,107,138,0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: popIn 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+    position: relative; overflow: hidden;
+  }
+  .btn::after {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(255,255,255,0.1);
+    border-radius: inherit;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .btn:hover::after { transform: scaleX(1); }
+  .btn:hover { transform: scale(1.05); box-shadow: 0 6px 30px rgba(201,107,138,0.5); }
+  .btn:active { transform: scale(0.97); }
+  @keyframes popIn {
+    0%   { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1);   opacity: 1; }
+  }
+
+  .btn-secondary {
+    background: linear-gradient(135deg, #1a6a7a, #0f3d4a);
+    box-shadow: 0 4px 20px rgba(26,138,138,0.3);
+  }
+  .btn-secondary:hover { box-shadow: 0 6px 28px rgba(26,138,138,0.5); }
+
+  /* ── STAGGER CHILDREN ── */
+  .stagger > * { opacity: 0; animation: slideUp 0.8s ease forwards; }
+  .stagger > *:nth-child(1) { animation-delay: 0.2s; }
+  .stagger > *:nth-child(2) { animation-delay: 0.55s; }
+  .stagger > *:nth-child(3) { animation-delay: 0.9s; }
+  .stagger > *:nth-child(4) { animation-delay: 1.2s; }
+  .stagger > *:nth-child(5) { animation-delay: 1.5s; }
+  @keyframes slideUp {
+    0%   { opacity: 0; transform: translateY(28px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── GALLERY ── */
+  .gallery { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 24px; }
+  .photo-placeholder {
+    width: 240px; height: 200px; border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.04);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.35); font-size: 0.85rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+  }
+  .photo-placeholder:hover { transform: scale(1.04) rotate(-1deg); box-shadow: 0 8px 30px rgba(200,160,180,0.2); }
+  .photo-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
+
+  /* ── APSARAA SECTION ── */
+  .apsaraa-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    animation: slideUp 0.8s ease both;
+  }
+  .apsaraa-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .apsaraa-photo {
+    flex-shrink: 0;
+    width: 220px; height: 220px;
+    border-radius: 18px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.78rem; text-align: center;
+    line-height: 1.6;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .apsaraa-photo:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 30px rgba(200,160,180,0.2);
+  }
+  .apsaraa-photo img { width:100%; height:100%; object-fit:cover; border-radius:18px; }
+  .apsaraa-photo small { display:block; margin-top:4px; opacity:0.5; font-size:0.65rem; }
+  .apsaraa-desc {
+    flex: 1;
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1rem, 3vw, 1.25rem) !important;
+    font-weight: 600;
+    line-height: 1.75 !important;
+    color: rgba(240,244,255,0.92) !important;
+    text-align: left;
+  }
+  @media (max-width: 500px) {
+    .apsaraa-row, .apsaraa-row-reverse {
+      flex-direction: column;
+      align-items: center;
+    }
+    .apsaraa-photo {
+      width: 100%;
+      height: 200px;
+    }
+    .apsaraa-desc { text-align: center; }
+  }
+
+  /* ── MEMORIES ── */
+  .memory-cards { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 24px; }
+  .memory-card {
+    background: var(--glass); border: 1px solid var(--glass-border);
+    border-radius: 18px; padding: 28px 22px;
+    width: 200px; min-height: 150px;
+    backdrop-filter: blur(12px);
+    display: flex; flex-direction: column; gap: 10px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .memory-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 12px 40px rgba(200,160,180,0.18); }
+  .memory-card .icon { font-size: 1.8rem; }
+  .memory-card p { font-size: 0.82rem; color: rgba(240,244,255,0.7); line-height: 1.6; }
+
+  /* ── CAKE SCENE ── */
+  #cake-section { background: transparent; }
+  #cake-scene {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+  /* The cake + side-msg row */
+  #cake-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+  #scene-msg {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.1rem, 3.5vw, 1.8rem);
+    color: var(--rose);
+    text-shadow: 0 0 20px rgba(232,160,180,0.6);
+    opacity: 0;
+    transition: opacity 1.4s ease;
+    min-height: 3em;
+    text-align: center;
+    max-width: 160px;
+    line-height: 1.6;
+    flex-shrink: 0;
+  }
+  @media (max-width: 500px) {
+    #cake-row { flex-direction: column; gap: 12px; }
+    #scene-msg { max-width: 90vw; min-height: 2em; font-size: clamp(1rem, 4vw, 1.4rem); }
+  }
+  #table-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 0;
+    opacity: 0; transition: opacity 2s cubic-bezier(0.4,0,0.2,1);
+    filter: drop-shadow(0 20px 60px rgba(0,0,0,0.7));
+    position: relative;
+  }
+  #cake-svg { width: min(320px, 85vw); height: auto; overflow: visible; }
+
+  /* Flames: hidden until lit — NO movement, only soft glow pulse */
+  .svg-flame { opacity: 0; transition: opacity 1.8s ease; }
+  .svg-flame.lit { opacity: 1; }
+  .svg-flame.out { opacity: 0 !important; transition: opacity 2s ease !important; }
+  .flame-glow {
+    animation: glowPulse 2s ease-in-out infinite alternate;
+  }
+  @keyframes glowPulse {
+    0%   { opacity: 0.7; }
+    100% { opacity: 1;   }
+  }
+  /* flame-body: completely still — real candle in still air */
+  .flame-body { animation: none; }
+
+  /* Black overlay for cake section — covers everything */
+  #cake-dark {
+    position: fixed; inset: 0; z-index: 8;
+    background: #000;
+    opacity: 1;
+    transition: opacity 2.4s cubic-bezier(0.4,0,0.2,1);
+    pointer-events: none;
+  }
+  #cake-dark.lights-on { opacity: 0; }
+
+  /* Cake section sits above overlay */
+  #cake { z-index: 9; }
+
+  /* Cut lines */
+  #cut-lines { transition: opacity 1s ease; opacity: 0; }
+  #cut-lines.show { opacity: 1; }
+
+  /* ── KNIFE ── */
+  #knife-wrap {
+    position: absolute;
+    left: 50%; top: -60px;
+    transform: translateX(-50%);
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+    z-index: 30;
+    filter: drop-shadow(2px 4px 10px rgba(0,0,0,0.7));
+  }
+  #knife-wrap.visible { opacity: 1; }
+  #knife-wrap:active { cursor: grabbing; }
+  #knife-hint {
+    text-align: center;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 8px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.05em;
+    opacity: 0; transition: opacity 1s ease 1s;
+    pointer-events: none;
+  }
+  #knife-hint.visible { opacity: 1; }
+
+  /* ── PREMIUM BUTTON TRANSITIONS ── */
+  .btn {
+    opacity: 0;
+    transform: translateY(14px) scale(0.95);
+  }
+  .btn.btn-appear {
+    animation: btnFadeIn 1s cubic-bezier(0.34,1.4,0.64,1) forwards;
+  }
+  @keyframes btnFadeIn {
+    0%   { opacity:0; transform:translateY(18px) scale(0.92); }
+    55%  { opacity:1; transform:translateY(-4px) scale(1.03); }
+    100% { opacity:1; transform:translateY(0)    scale(1); }
+  }
+  .btn.btn-disappear {
+    animation: btnFadeOut 0.6s cubic-bezier(0.4,0,1,1) forwards;
+  }
+  @keyframes btnFadeOut {
+    0%   { opacity:1; transform:translateY(0) scale(1); }
+    100% { opacity:0; transform:translateY(10px) scale(0.93); }
+  }
+
+  /* ── LOADING SCREEN ── */
+  #loading-screen {
+    position: fixed; inset: 0; z-index: 999;
+    background: #020810;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 28px;
+    transition: opacity 1.2s ease;
+  }
+  #loading-screen.fade-out { opacity: 0; pointer-events: none; }
+  .loading-emoji { font-size: 3rem; animation: slowPulse 1.6s ease-in-out infinite; }
+  .loading-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    color: var(--rose);
+    text-align: center;
+    text-shadow: 0 0 20px rgba(232,160,180,0.5);
+    max-width: 320px; line-height: 1.6;
+  }
+  .loading-bar-wrap {
+    width: 200px; height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px; overflow: hidden;
+  }
+  .loading-bar {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, #c96b8a, #3a8fa0);
+    border-radius: 4px;
+    transition: width 2.2s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* ── PROGRESS DOTS ── */
+  #progress-dots {
+    position: fixed; bottom: 18px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px; z-index: 50;
+    pointer-events: none;
+    opacity: 0; transition: opacity 0.6s ease;
+  }
+  #progress-dots.visible { opacity: 1; }
+  .pdot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transition: background 0.4s ease, transform 0.4s ease;
+  }
+  .pdot.active {
+    background: var(--rose);
+    transform: scale(1.4);
+    box-shadow: 0 0 8px rgba(232,160,180,0.6);
+  }
+
+  /* ── TYPING EFFECT ── */
+  .typed-cursor {
+    display: inline-block;
+    width: 2px; height: 1.1em;
+    background: var(--rose);
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: cursorBlink 0.9s ease-in-out infinite;
+  }
+  @keyframes cursorBlink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
+  /* ── DAY COUNTER ── */
+  #s-daycounter .counter-number {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(4rem, 16vw, 7rem);
+    font-weight: 700;
+    color: var(--rose);
+    text-shadow: 0 0 40px rgba(232,160,180,0.7), 0 0 80px rgba(232,160,180,0.3);
+    line-height: 1;
+    display: block;
+  }
+  #s-daycounter .counter-label {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    color: rgba(240,244,255,0.6);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 8px;
+    display: block;
+  }
+  #s-daycounter .counter-sub {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+    color: rgba(240,244,255,0.8);
+    margin-top: 20px;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding: 8px 0 8px 36px;
+    margin-top: 8px;
+    text-align: left;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 10px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--rose-deep) 10%, var(--rose-deep) 90%, transparent);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 24px;
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .tl-item.tl-visible { opacity: 1; transform: translateX(0); }
+  .tl-dot {
+    position: absolute;
+    left: -30px; top: 4px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--rose);
+    box-shadow: 0 0 8px rgba(232,160,180,0.8), 0 0 16px rgba(232,160,180,0.4);
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+  .tl-year {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.15rem;
+    color: var(--rose);
+    font-weight: 700;
+  }
+  .tl-text {
+    font-size: 0.88rem;
+    color: rgba(240,244,255,0.75);
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+
+  /* ── LOVE LIST ── */
+  .love-list { text-align: left; margin-top: 8px; }
+  .love-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    margin-bottom: 18px;
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .love-item.love-visible { opacity: 1; transform: translateY(0); }
+  .love-num {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem; color: var(--rose);
+    flex-shrink: 0; line-height: 1.3;
+    text-shadow: 0 0 10px rgba(232,160,180,0.5);
+  }
+  .love-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(0.95rem, 2.6vw, 1.15rem);
+    color: rgba(240,244,255,0.88);
+    line-height: 1.55;
+  }
+
+  /* ── CONFETTI ── */
+  #confetti-canvas { position: fixed; inset: 0; z-index: 100; pointer-events: none; }
+
+  /* ── WISH SECTION ── */
+  #wish-icon { font-size: 3rem; animation: slowPulse 2.5s ease-in-out infinite; }
+  @keyframes slowPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+
+  /* ── FINAL SEAL ── */
+  #seal-screen {
+    position: fixed; inset: 0; z-index: 200;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: radial-gradient(ellipse at 50% 45%, #0d3d50 0%, #050d1a 100%);
+    opacity: 0; pointer-events: none; transition: opacity 1.6s ease; padding: 32px;
+  }
+  #seal-screen.active { opacity: 1; pointer-events: all; }
+  .seal-heart { font-size: 5rem; animation: heartBeat 1.6s ease-in-out infinite; margin-bottom: 24px; }
+  @keyframes heartBeat {
+    0%,100% { transform: scale(1); }
+    14%      { transform: scale(1.15); }
+    28%      { transform: scale(1); }
+    42%      { transform: scale(1.08); }
+    70%      { transform: scale(1); }
+  }
+
+  /* ── SCROLLABLE CARD ── */
+  .scroll-card { max-height: 55vh; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(200,160,180,0.3) transparent; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 480px) {
+    .card { padding: 32px 22px; }
+    .memory-card { width: 150px; }
+    .photo-placeholder { width: 200px; height: 160px; }
+    #table-wrap #cake-el { transform: scale(0.85); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Background + layers -->
+<div id="bg"></div>
+<div id="particles"></div>
+<canvas id="confetti-canvas"></canvas>
+
+<!-- Loading Screen -->
+<div id="loading-screen">
+  <div class="loading-emoji">🎀</div>
+  <div class="loading-text">Loading birthday surprise for a cutiepie!! 👀🎀</div>
+  <div class="loading-bar-wrap"><div class="loading-bar" id="loading-bar"></div></div>
+</div>
+
+<!-- Progress Dots -->
+<div id="progress-dots"></div>
+
+<!-- ────────── SECTION 1 ────────── -->
+<div class="section active" id="s1">
+  <div class="card stagger">
+    <div class="title-script">Do you know today is the birthday of the prettiest girl I've ever known?💗</div>
+    <button class="btn" onclick="goTo('s2')">Tap to know the girl 💗</button>
+  </div>
+</div>
+
+<!-- ────────── SECTION 2 ────────── -->
+<div class="section" id="s2">
+  <div class="card stagger">
+    <div class="title-script">A girl was born 15 years ago today....✨️</div>
+    <button class="btn" onclick="goTo('s3')">Tap to know the most beautiful girl</button>
+  </div>
+</div>
+
+<!-- ────────── SECTION 3 ────────── -->
+<div class="section" id="s3">
+  <div class="card stagger">
+    <div class="title-script" style="font-size:clamp(3rem,12vw,7rem); text-shadow: 0 0 40px rgba(232,160,180,0.8),0 0 80px rgba(232,160,180,0.4);">PRITI💗</div>
+    <div class="subtitle" style="font-family:'Dancing Script',cursive;font-size:clamp(1.2rem,4vw,1.8rem);color:var(--rose);">HAPPIESTT BIRTHDAYYY BESTIEEE!!😭💗</div>
+    <button class="btn" onclick="goTo('s-letter1')">Tap to continue</button>
+  </div>
+</div>
+
+<!-- ────────── LETTER SECTION ────────── -->
+<div class="section" id="s-letter1">
+  <div class="card stagger scroll-card" style="max-width:640px;">
+    <div class="title-script" style="font-size:clamp(1.6rem,5vw,2.4rem);margin-bottom:18px;">A Letter For You 💌</div>
+    <div class="letter-text" id="letter1-text" style="min-height:8em;"></div>
+    <button class="btn" style="animation-delay:1.8s;" onclick="goTo('s-gallery')">Tap to continue</button>
+  </div>
+</div>
+
+<!-- ────────── GALLERY ────────── -->
+<div class="section" id="s-gallery">
+  <div class="card stagger" style="max-width:680px;">
+    <div class="title-script" style="font-size:clamp(1.5rem,4vw,2.2rem);">Our Beautiful Moments 📸</div>
+    <div class="gallery">
+      <div class="photo-placeholder">
+        <span>Add your photo here 🌸<br><small style="display:block;margin-top:6px;opacity:0.6;">&lt;img src="..." /&gt;</small></span>
+      </div>
+      <div class="photo-placeholder">
+        <span>Add your photo here 🌸<br><small style="display:block;margin-top:6px;opacity:0.6;">&lt;img src="..." /&gt;</small></span>
+      </div>
+    </div>
+    <button class="btn" onclick="goTo('s-apsaraa')" style="animation-delay:1.2s;">Tap to continue</button>
+  </div>
+</div>
+
+<!-- ────────── APSARAA SECTION ────────── -->
+<div class="section" id="s-apsaraa">
+  <div class="card stagger scroll-card" style="max-width:820px;">
+
+    <div class="title-script" style="font-size:clamp(1.6rem,5.5vw,2.6rem); margin-bottom:28px;">
+      That one Apsaraa!! 🤌🏻🧿
+    </div>
+
+    <!-- Row 1: photo left, text right -->
+    <div class="apsaraa-row">
+      <div class="apsaraa-photo" style="width:220px;height:220px;">
+        <span>Add photo 🌸<br><small>&lt;img src="..." /&gt;</small></span>
+      </div>
+      <div class="apsaraa-desc letter-text">
+        [Describe her here — something like "The girl who laughs at everything and somehow makes everything better just by being there. 💗"]
+      </div>
+    </div>
+
+    <!-- Row 2: text left, photo right -->
+    <div class="apsaraa-row apsaraa-row-reverse">
+      <div class="apsaraa-photo" style="width:220px;height:220px;">
+        <span>Add photo 🌸<br><small>&lt;img src="..." /&gt;</small></span>
+      </div>
+      <div class="apsaraa-desc letter-text">
+        [Another line or two about her — maybe her smile, her energy, the way she shows up for people. ✨]
+      </div>
+    </div>
+
+    <!-- Row 3: photo left, text right -->
+    <div class="apsaraa-row">
+      <div class="apsaraa-photo" style="width:220px;height:220px;">
+        <span>Add photo 🌸<br><small>&lt;img src="..." /&gt;</small></span>
+      </div>
+      <div class="apsaraa-desc letter-text">
+        [Last one — maybe the most personal one. Something only you would say about her. 🫂]
+      </div>
+    </div>
+
+    <button class="btn" onclick="goTo('cake')" style="margin-top:36px;">Tap to continue</button>
+  </div>
+</div>
+
+<!-- ────────── CAKE SECTION ────────── -->
+<!-- Black darkness overlay — covers bg until lights on -->
+<div id="cake-dark"></div>
+
+<!-- Fairy lights — fixed frame shown only during cake section after Decorate -->
+<div id="fairy-lights-cake">
+  <svg id="fairy-svg-frame" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"></svg>
+</div>
+
+<div class="section" id="cake">
+  <div id="cake-scene">
+    <div id="cake-row">
+      <div id="scene-msg"></div>
+      <div id="table-wrap">
+
+      <!-- KNIFE (draggable, shown at cut step) -->
+      <div id="knife-wrap">
+        <svg width="48" height="140" viewBox="0 0 48 140" xmlns="http://www.w3.org/2000/svg">
+          <!-- Handle -->
+          <rect x="16" y="80" width="16" height="55" rx="6" fill="#2c1a0e"/>
+          <rect x="19" y="80" width="5" height="55" rx="3" fill="#4a2e18" opacity="0.6"/>
+          <rect x="16" y="130" width="16" height="5" rx="2" fill="#1a0e06"/>
+          <!-- Guard -->
+          <rect x="10" y="75" width="28" height="8" rx="3" fill="#8a8a8a"/>
+          <rect x="11" y="76" width="26" height="3" rx="2" fill="#b0b0b0" opacity="0.5"/>
+          <!-- Blade -->
+          <polygon points="24,0 18,75 30,75" fill="url(#knifeGrad)"/>
+          <polygon points="24,0 24,75 30,75" fill="#e8e8e8" opacity="0.4"/>
+          <defs>
+            <linearGradient id="knifeGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#c0c0c0"/>
+              <stop offset="40%" stop-color="#f0f0f0"/>
+              <stop offset="100%" stop-color="#909090"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div id="knife-hint">drag to cut ✦</div>
+      </div>
+
+      <!-- ═══ PREMIUM SVG CAKE ═══ -->
+      <svg id="cake-svg" viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Layer gradients -->
+          <linearGradient id="gBot" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f9c8d8"/>
+            <stop offset="40%" stop-color="#e8869e"/>
+            <stop offset="100%" stop-color="#c0506e"/>
+          </linearGradient>
+          <linearGradient id="gBotSide" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#a03050"/>
+            <stop offset="30%" stop-color="#d06080"/>
+            <stop offset="70%" stop-color="#c05070"/>
+            <stop offset="100%" stop-color="#8a2848"/>
+          </linearGradient>
+          <linearGradient id="gMid" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fce0ea"/>
+            <stop offset="40%" stop-color="#f0a0bc"/>
+            <stop offset="100%" stop-color="#d06888"/>
+          </linearGradient>
+          <linearGradient id="gMidSide" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#b04868"/>
+            <stop offset="30%" stop-color="#e088a4"/>
+            <stop offset="70%" stop-color="#d07890"/>
+            <stop offset="100%" stop-color="#9a3858"/>
+          </linearGradient>
+          <linearGradient id="gTop" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fff0f5"/>
+            <stop offset="40%" stop-color="#fdc8d8"/>
+            <stop offset="100%" stop-color="#e890a8"/>
+          </linearGradient>
+          <linearGradient id="gTopSide" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#c06878"/>
+            <stop offset="30%" stop-color="#f0a8b8"/>
+            <stop offset="70%" stop-color="#e098a8"/>
+            <stop offset="100%" stop-color="#a85868"/>
+          </linearGradient>
+          <!-- Frosting white -->
+          <linearGradient id="gFrost" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#fce8f0"/>
+          </linearGradient>
+          <!-- Table wood -->
+          <linearGradient id="gTable" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#6b3a1f"/>
+            <stop offset="60%" stop-color="#4a2510"/>
+            <stop offset="100%" stop-color="#321508"/>
+          </linearGradient>
+          <linearGradient id="gTableTop" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#8b4c24"/>
+            <stop offset="100%" stop-color="#5a3010"/>
+          </linearGradient>
+          <!-- Candle gradients -->
+          <linearGradient id="gc1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#e8b8d0"/>
+            <stop offset="50%" stop-color="#fce8f4"/>
+            <stop offset="100%" stop-color="#d090b0"/>
+          </linearGradient>
+          <linearGradient id="gc2" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#b8d8e8"/>
+            <stop offset="50%" stop-color="#e8f4fc"/>
+            <stop offset="100%" stop-color="#90b8d0"/>
+          </linearGradient>
+          <linearGradient id="gc3" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#e8d8b0"/>
+            <stop offset="50%" stop-color="#fdf4e0"/>
+            <stop offset="100%" stop-color="#c8b080"/>
+          </linearGradient>
+          <linearGradient id="gc4" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#d0b8e8"/>
+            <stop offset="50%" stop-color="#f0e8fc"/>
+            <stop offset="100%" stop-color="#b090d0"/>
+          </linearGradient>
+          <linearGradient id="gc5" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#b8e8c8"/>
+            <stop offset="50%" stop-color="#e0fce8"/>
+            <stop offset="100%" stop-color="#88c8a0"/>
+          </linearGradient>
+          <!-- Flame gradient -->
+          <radialGradient id="gFlameOuter" cx="50%" cy="80%" r="50%">
+            <stop offset="0%" stop-color="#fff8a0"/>
+            <stop offset="40%" stop-color="#ffb020"/>
+            <stop offset="100%" stop-color="#ff5500" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="gFlameInner" cx="50%" cy="70%" r="40%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="60%" stop-color="#fff0a0"/>
+            <stop offset="100%" stop-color="#ffaa00" stop-opacity="0"/>
+          </radialGradient>
+          <!-- Drip shadow filter -->
+          <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#00000044"/>
+          </filter>
+          <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="flameShadow">
+            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- ── TABLE ── -->
+        <!-- Table top surface -->
+        <rect x="20" y="308" width="280" height="16" rx="4" fill="url(#gTableTop)" filter="url(#softShadow)"/>
+        <!-- Wood grain lines -->
+        <line x1="40" y1="309" x2="38" y2="323" stroke="#3a1a08" stroke-width="0.6" opacity="0.4"/>
+        <line x1="80" y1="309" x2="82" y2="323" stroke="#3a1a08" stroke-width="0.5" opacity="0.3"/>
+        <line x1="130" y1="309" x2="128" y2="323" stroke="#3a1a08" stroke-width="0.7" opacity="0.35"/>
+        <line x1="190" y1="309" x2="192" y2="323" stroke="#3a1a08" stroke-width="0.5" opacity="0.3"/>
+        <line x1="240" y1="309" x2="238" y2="323" stroke="#3a1a08" stroke-width="0.6" opacity="0.4"/>
+        <line x1="280" y1="309" x2="282" y2="323" stroke="#3a1a08" stroke-width="0.5" opacity="0.3"/>
+        <!-- Legs -->
+        <rect x="55" y="324" width="18" height="52" rx="3" fill="url(#gTable)"/>
+        <rect x="247" y="324" width="18" height="52" rx="3" fill="url(#gTable)"/>
+        <!-- Leg shadow -->
+        <rect x="55" y="324" width="4" height="52" rx="2" fill="#00000030"/>
+        <rect x="247" y="324" width="4" height="52" rx="2" fill="#00000030"/>
+
+        <!-- ── CAKE PLATE ── -->
+        <ellipse cx="160" cy="310" rx="118" ry="10" fill="#f8f0f4" opacity="0.25"/>
+
+        <!-- ══════════════════════════════════════ -->
+        <!-- BOTTOM LAYER (widest) -->
+        <!-- ══════════════════════════════════════ -->
+        <!-- Side face (3D illusion) -->
+        <rect x="54" y="240" width="212" height="68" rx="3" fill="url(#gBotSide)" filter="url(#softShadow)"/>
+        <!-- Top face -->
+        <rect x="54" y="232" width="212" height="14" rx="5" fill="url(#gBot)"/>
+        <!-- Sponge texture lines on side -->
+        <line x1="54" y1="258" x2="266" y2="258" stroke="#ffffff18" stroke-width="1"/>
+        <line x1="54" y1="274" x2="266" y2="274" stroke="#ffffff18" stroke-width="1"/>
+        <line x1="54" y1="290" x2="266" y2="290" stroke="#ffffff18" stroke-width="1"/>
+        <!-- Cream filling stripe -->
+        <rect x="54" y="254" width="212" height="8" fill="#fff0f4" opacity="0.35"/>
+        <rect x="54" y="281" width="212" height="7" fill="#fff0f4" opacity="0.28"/>
+        <!-- Bottom layer shadow -->
+        <rect x="54" y="300" width="212" height="8" rx="2" fill="#00000030"/>
+
+        <!-- Bottom frosting drips -->
+        <!-- drip shapes: rounded bottom blobs -->
+        <ellipse cx="80"  cy="246" rx="9"  ry="13" fill="url(#gFrost)" opacity="0.95"/>
+        <ellipse cx="108" cy="249" rx="8"  ry="11" fill="url(#gFrost)" opacity="0.9"/>
+        <ellipse cx="135" cy="244" rx="10" ry="14" fill="url(#gFrost)" opacity="0.95"/>
+        <ellipse cx="163" cy="247" rx="8"  ry="12" fill="url(#gFrost)" opacity="0.9"/>
+        <ellipse cx="190" cy="245" rx="9"  ry="13" fill="url(#gFrost)" opacity="0.95"/>
+        <ellipse cx="218" cy="248" rx="8"  ry="11" fill="url(#gFrost)" opacity="0.9"/>
+        <ellipse cx="244" cy="246" rx="9"  ry="13" fill="url(#gFrost)" opacity="0.92"/>
+        <!-- frosting top band bottom layer -->
+        <rect x="54" y="228" width="212" height="18" rx="5" fill="url(#gFrost)" opacity="0.95"/>
+        <!-- Pink tint on frosting top -->
+        <rect x="60" y="230" width="200" height="6" rx="3" fill="#ffcce0" opacity="0.5"/>
+
+        <!-- Decorative piping bottom layer - small rosettes -->
+        <circle cx="80"  cy="232" r="5" fill="#ffd0e4" stroke="#fff0f8" stroke-width="0.8"/>
+        <circle cx="80"  cy="232" r="2.5" fill="#ffb0d0"/>
+        <circle cx="135" cy="232" r="5" fill="#ffd0e4" stroke="#fff0f8" stroke-width="0.8"/>
+        <circle cx="135" cy="232" r="2.5" fill="#ffb0d0"/>
+        <circle cx="190" cy="232" r="5" fill="#ffd0e4" stroke="#fff0f8" stroke-width="0.8"/>
+        <circle cx="190" cy="232" r="2.5" fill="#ffb0d0"/>
+        <circle cx="244" cy="232" r="5" fill="#ffd0e4" stroke="#fff0f8" stroke-width="0.8"/>
+        <circle cx="244" cy="232" r="2.5" fill="#ffb0d0"/>
+
+        <!-- ══════════════════════════════════════ -->
+        <!-- MIDDLE LAYER -->
+        <!-- ══════════════════════════════════════ -->
+        <rect x="78" y="170" width="164" height="64" rx="3" fill="url(#gMidSide)" filter="url(#softShadow)"/>
+        <rect x="78" y="163" width="164" height="13" rx="5" fill="url(#gMid)"/>
+        <!-- Sponge texture mid -->
+        <line x1="78" y1="188" x2="242" y2="188" stroke="#ffffff18" stroke-width="1"/>
+        <line x1="78" y1="208" x2="242" y2="208" stroke="#ffffff18" stroke-width="1"/>
+        <!-- Cream filling mid -->
+        <rect x="78" y="185" width="164" height="7" fill="#fff0f4" opacity="0.35"/>
+        <!-- Mid shadow -->
+        <rect x="78" y="228" width="164" height="7" rx="2" fill="#00000025"/>
+
+        <!-- Mid frosting drips -->
+        <ellipse cx="100" cy="177" rx="8"  ry="12" fill="url(#gFrost)" opacity="0.95"/>
+        <ellipse cx="125" cy="180" rx="7"  ry="10" fill="url(#gFrost)" opacity="0.9"/>
+        <ellipse cx="150" cy="175" rx="9"  ry="13" fill="url(#gFrost)" opacity="0.95"/>
+        <ellipse cx="175" cy="178" rx="7"  ry="11" fill="url(#gFrost)" opacity="0.9"/>
+        <ellipse cx="200" cy="176" rx="8"  ry="12" fill="url(#gFrost)" opacity="0.92"/>
+        <ellipse cx="224" cy="179" rx="7"  ry="10" fill="url(#gFrost)" opacity="0.9"/>
+        <!-- frosting top band mid -->
+        <rect x="78" y="159" width="164" height="16" rx="5" fill="url(#gFrost)" opacity="0.95"/>
+        <rect x="84" y="161" width="152" height="6" rx="3" fill="#ffcce0" opacity="0.5"/>
+
+        <!-- Mid piping rosettes -->
+        <circle cx="100" cy="163" r="5" fill="#ffd0e4" stroke="#fff0f8" stroke-width="0.8"/>
+        <circle cx="100" cy="163" r="2.5" fill="#ffb0d0"/>
+        <circle cx="150" cy="163" r="5" fill="#ffd0e4" stroke="#fff0f8" stroke-width="0.8"/>
+        <circle cx="150" cy="163" r="2.5" fill="#ffb0d0"/>
+        <circle cx="200" cy="163" r="5" fill="#ffd0e4" stroke="#fff0f8" stroke-width="0.8"/>
+        <circle cx="200" cy="163" r="2.5" fill="#ffb0d0"/>
+        <circle cx="224" cy="163" r="5.5" fill="#ffd0e4" stroke="#fff0f8" stroke-width="0.8"/>
+        <circle cx="224" cy="163" r="2.5" fill="#ffb0d0"/>
+
+        <!-- ══════════════════════════════════════ -->
+        <!-- TOP LAYER (smallest) -->
+        <!-- ══════════════════════════════════════ -->
+        <rect x="102" y="108" width="116" height="56" rx="3" fill="url(#gTopSide)" filter="url(#softShadow)"/>
+        <rect x="102" y="101" width="116" height="13" rx="5" fill="url(#gTop)"/>
+        <!-- Sponge texture top -->
+        <line x1="102" y1="126" x2="218" y2="126" stroke="#ffffff18" stroke-width="1"/>
+        <line x1="102" y1="145" x2="218" y2="145" stroke="#ffffff18" stroke-width="1"/>
+        <!-- Cream filling top -->
+        <rect x="102" y="123" width="116" height="7" fill="#fff0f4" opacity="0.35"/>
+        <!-- Top shadow -->
+        <rect x="102" y="160" width="116" height="6" rx="2" fill="#00000022"/>
+
+        <!-- Top frosting drips -->
+        <ellipse cx="120" cy="114" rx="7"  ry="11" fill="url(#gFrost)" opacity="0.95"/>
+        <ellipse cx="143" cy="117" rx="7"  ry="10" fill="url(#gFrost)" opacity="0.9"/>
+        <ellipse cx="166" cy="113" rx="8"  ry="12" fill="url(#gFrost)" opacity="0.95"/>
+        <ellipse cx="190" cy="116" rx="7"  ry="10" fill="url(#gFrost)" opacity="0.9"/>
+        <ellipse cx="210" cy="114" rx="6"  ry="11" fill="url(#gFrost)" opacity="0.92"/>
+        <!-- frosting top band top layer -->
+        <rect x="102" y="97" width="116" height="16" rx="5" fill="url(#gFrost)" opacity="0.95"/>
+        <rect x="108" y="99" width="104" height="6" rx="3" fill="#ffcce0" opacity="0.5"/>
+
+        <!-- Top layer piping rosettes + sugar pearls -->
+        <circle cx="120" cy="101" r="4.5" fill="#ffd0e4" stroke="#fff0f8" stroke-width="0.8"/>
+        <circle cx="120" cy="101" r="2" fill="#ffb0d0"/>
+        <circle cx="160" cy="101" r="4.5" fill="#ffd0e4" stroke="#fff0f8" stroke-width="0.8"/>
+        <circle cx="160" cy="101" r="2" fill="#ffb0d0"/>
+        <circle cx="200" cy="101" r="4.5" fill="#ffd0e4" stroke="#fff0f8" stroke-width="0.8"/>
+        <circle cx="200" cy="101" r="2" fill="#ffb0d0"/>
+        <!-- sugar pearls -->
+        <circle cx="140" cy="100" r="2.5" fill="#fff8fc" stroke="#f0c0d0" stroke-width="0.5"/>
+        <circle cx="180" cy="100" r="2.5" fill="#fff8fc" stroke="#f0c0d0" stroke-width="0.5"/>
+
+        <!-- ── DECORATIVE SUGAR FLOWERS on side of top layer ── -->
+        <g opacity="0.85">
+          <circle cx="113" cy="135" r="5" fill="#ff9ab8"/>
+          <circle cx="113" cy="135" r="2.5" fill="#ffe0ec"/>
+          <circle cx="113" cy="130" r="3" fill="#ff9ab8" opacity="0.7"/>
+          <circle cx="118" cy="138" r="3" fill="#ff9ab8" opacity="0.7"/>
+          <circle cx="108" cy="138" r="3" fill="#ff9ab8" opacity="0.7"/>
+        </g>
+        <g opacity="0.85">
+          <circle cx="207" cy="135" r="5" fill="#ff9ab8"/>
+          <circle cx="207" cy="135" r="2.5" fill="#ffe0ec"/>
+          <circle cx="207" cy="130" r="3" fill="#ff9ab8" opacity="0.7"/>
+          <circle cx="212" cy="138" r="3" fill="#ff9ab8" opacity="0.7"/>
+          <circle cx="202" cy="138" r="3" fill="#ff9ab8" opacity="0.7"/>
+        </g>
+
+        <!-- ── "15" sugar decoration on top ── -->
+        <text x="160" y="148" text-anchor="middle" font-family="Dancing Script, cursive" font-size="22" font-weight="700" fill="#c05070" opacity="0.9" filter="url(#softShadow)">15</text>
+
+        <!-- ══════════════════════════════════════ -->
+        <!-- CANDLES (5 candles on top) -->
+        <!-- ══════════════════════════════════════ -->
+        <!-- Candle 1 -->
+        <g class="svg-flame" id="flame1">
+          <ellipse cx="120" cy="68" rx="11" ry="11" fill="#ff8800" opacity="0.3" class="flame-glow"/>
+          <ellipse cx="120" cy="70" rx="6"  ry="9"  fill="url(#gFlameOuter)" class="flame-body"/>
+          <ellipse cx="120" cy="72" rx="3"  ry="5"  fill="url(#gFlameInner)" class="flame-body"/>
+        </g>
+        <rect x="116" y="77" width="2" height="5" rx="1" fill="#2a1a0a"/><!-- wick -->
+        <rect x="114" y="82" width="11" height="18" rx="3" fill="url(#gc1)" filter="url(#softShadow)"/>
+        <rect x="114" y="82" width="3"  height="18" rx="2" fill="#ffffff30"/><!-- shine -->
+
+        <!-- Candle 2 -->
+        <g class="svg-flame" id="flame2">
+          <ellipse cx="138" cy="64" rx="11" ry="11" fill="#ff8800" opacity="0.3" class="flame-glow"/>
+          <ellipse cx="138" cy="66" rx="6"  ry="9"  fill="url(#gFlameOuter)" class="flame-body"/>
+          <ellipse cx="138" cy="68" rx="3"  ry="5"  fill="url(#gFlameInner)" class="flame-body"/>
+        </g>
+        <rect x="134" y="73" width="2" height="5" rx="1" fill="#2a1a0a"/>
+        <rect x="132" y="78" width="11" height="22" rx="3" fill="url(#gc2)" filter="url(#softShadow)"/>
+        <rect x="132" y="78" width="3"  height="22" rx="2" fill="#ffffff30"/>
+
+        <!-- Candle 3 (center, tallest) -->
+        <g class="svg-flame" id="flame3">
+          <ellipse cx="160" cy="60" rx="13" ry="13" fill="#ff8800" opacity="0.35" class="flame-glow"/>
+          <ellipse cx="160" cy="62" rx="7"  ry="11" fill="url(#gFlameOuter)" class="flame-body"/>
+          <ellipse cx="160" cy="65" rx="3.5" ry="6" fill="url(#gFlameInner)" class="flame-body"/>
+        </g>
+        <rect x="156" y="71" width="2.5" height="6" rx="1" fill="#2a1a0a"/>
+        <rect x="153" y="77" width="13"  height="24" rx="3" fill="url(#gc3)" filter="url(#softShadow)"/>
+        <rect x="153" y="77" width="3.5" height="24" rx="2" fill="#ffffff30"/>
+
+        <!-- Candle 4 -->
+        <g class="svg-flame" id="flame4">
+          <ellipse cx="182" cy="64" rx="11" ry="11" fill="#ff8800" opacity="0.3" class="flame-glow"/>
+          <ellipse cx="182" cy="66" rx="6"  ry="9"  fill="url(#gFlameOuter)" class="flame-body"/>
+          <ellipse cx="182" cy="68" rx="3"  ry="5"  fill="url(#gFlameInner)" class="flame-body"/>
+        </g>
+        <rect x="178" y="73" width="2" height="5" rx="1" fill="#2a1a0a"/>
+        <rect x="176" y="78" width="11" height="22" rx="3" fill="url(#gc4)" filter="url(#softShadow)"/>
+        <rect x="176" y="78" width="3"  height="22" rx="2" fill="#ffffff30"/>
+
+        <!-- Candle 5 -->
+        <g class="svg-flame" id="flame5">
+          <ellipse cx="200" cy="68" rx="11" ry="11" fill="#ff8800" opacity="0.3" class="flame-glow"/>
+          <ellipse cx="200" cy="70" rx="6"  ry="9"  fill="url(#gFlameOuter)" class="flame-body"/>
+          <ellipse cx="200" cy="72" rx="3"  ry="5"  fill="url(#gFlameInner)" class="flame-body"/>
+        </g>
+        <rect x="196" y="77" width="2" height="5" rx="1" fill="#2a1a0a"/>
+        <rect x="194" y="82" width="11" height="18" rx="3" fill="url(#gc5)" filter="url(#softShadow)"/>
+        <rect x="194" y="82" width="3"  height="18" rx="2" fill="#ffffff30"/>
+
+        <!-- ══ CUT SLICE (shown after "Cut the cake") ══ -->
+        <g id="cut-lines">
+          <!-- Two cut lines from centre top to bottom corners of top layer -->
+          <line x1="160" y1="97" x2="135" y2="165" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="160" y1="97" x2="185" y2="165" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <!-- Exposed sponge fill -->
+          <polygon points="160,97 135,165 185,165" fill="#e85070" opacity="0.5"/>
+          <!-- sponge layers inside cut -->
+          <line x1="145" y1="130" x2="175" y2="130" stroke="#fff0f4" stroke-width="3" opacity="0.4"/>
+          <line x1="141" y1="148" x2="179" y2="148" stroke="#fff0f4" stroke-width="3" opacity="0.4"/>
+        </g>
+
+        <!-- ── Ambient glow under cake (lit state) ── -->
+        <ellipse cx="160" cy="318" rx="100" ry="8" fill="#ff88aa" opacity="0.12"/>
+      </svg>
+      <!-- END SVG CAKE -->
+
+    </div><!-- end table-wrap -->
+    </div><!-- end cake-row -->
+    <div id="cake-btn-wrap" style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:4px;"></div>
+  </div>
+</div>
+
+<!-- ────────── WISH SECTION ────────── -->
+<div class="section" id="s-wish">
+  <div class="card stagger" style="max-width:560px;">
+    <div id="wish-icon">✨</div>
+    <div class="title-script" style="font-size:clamp(1.5rem,5vw,2.4rem);margin-top:12px;">Time to Make a Wish!</div>
+    <div class="subtitle">
+      Close your eyes and make your birthday wish! 💫<br>
+      Think of something wonderful for your new year! 🌼
+    </div>
+    <button class="btn" onclick="goTo('s-memories')">Tap to continue</button>
+  </div>
+</div>
+
+<!-- ────────── MEMORIES ────────── -->
+<div class="section" id="s-memories">
+  <div class="card stagger" style="max-width:700px;">
+    <div class="title-script" style="font-size:clamp(1.5rem,4.5vw,2.4rem);">Chapters of us!! 📖💗</div>
+    <div class="memory-cards">
+      <div class="memory-card">
+        <div class="icon">💗</div>
+        <div style="font-family:'Dancing Script',cursive;font-size:1.05rem;color:var(--rose);">Memory 1</div>
+        <p>[Replace with your funniest/cutest shared memory. The more specific, the better!]</p>
+      </div>
+      <div class="memory-card">
+        <div class="icon">🧿</div>
+        <div style="font-family:'Dancing Script',cursive;font-size:1.05rem;color:var(--rose);">Memory 2</div>
+        <p>[That moment you both still laugh about. Put it here!]</p>
+      </div>
+      <div class="memory-card">
+        <div class="icon">🌸</div>
+        <div style="font-family:'Dancing Script',cursive;font-size:1.05rem;color:var(--rose);">Memory 3</div>
+        <p>[Your favourite soft, gentle memory together — a walk, a chat, a quiet moment.]</p>
+      </div>
+    </div>
+    <button class="btn" onclick="goTo('s-timeline')" style="animation-delay:1.5s;">Tap to continue</button>
+  </div>
+</div>
+
+<!-- ────────── TIMELINE ────────── -->
+<div class="section" id="s-timeline">
+  <div class="card stagger scroll-card" style="max-width:580px;">
+    <div class="title-script" style="font-size:clamp(1.5rem,4.5vw,2.3rem);margin-bottom:6px;">10 Years of Us 🌱💗</div>
+    <div class="subtitle" style="margin-bottom:16px;margin-top:6px;">From 2016 to forever...</div>
+    <div class="timeline" id="timeline-wrap">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2016</div><div class="tl-text">The year it all started — and nothing has been the same since 🌱</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2017</div><div class="tl-text">[Your memory here — what happened this year?]</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2018</div><div class="tl-text">[Your memory here]</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2019</div><div class="tl-text">[Your memory here]</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2020</div><div class="tl-text">Survived the whole world falling apart — together 🫂</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2021</div><div class="tl-text">[Your memory here]</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022</div><div class="tl-text">[Your memory here]</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2023</div><div class="tl-text">[Your memory here]</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2024</div><div class="tl-text">[Your memory here]</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2025</div><div class="tl-text">[Your memory here]</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2026</div><div class="tl-text">Still here. Still us. Still the best decision ever 💗</div></div>
+    </div>
+    <button class="btn" onclick="goTo('s-daycounter')">Tap to continue</button>
+  </div>
+</div>
+
+<!-- ────────── DAY COUNTER ────────── -->
+<div class="section" id="s-daycounter">
+  <div class="card stagger" style="max-width:560px;text-align:center;">
+    <div class="title-script" style="font-size:clamp(1.3rem,4vw,2rem);margin-bottom:24px;">We've been us for...</div>
+    <span class="counter-number" id="day-count">10</span>
+    <span class="counter-label">years of friendship 🫂</span>
+    <div class="counter-sub">
+      Somewhere in April 2016, my life got so much better 🌱<br><br>
+      And it's been better every single day since. 💗
+    </div>
+    <button class="btn" onclick="goTo('s-final')" style="margin-top:32px;">Tap to continue</button>
+  </div>
+</div>
+
+<!-- ────────── FINAL LETTER ────────── -->
+<div class="section" id="s-final">
+  <div class="card stagger scroll-card" style="max-width:640px;">
+    <div class="title-script" style="font-size:clamp(1.5rem,4.5vw,2.4rem);margin-bottom:18px;">One Last Thing... 💗</div>
+    <div class="letter-text" id="letter2-text" style="min-height:8em;"></div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+      <button class="btn" onclick="sealLetter()">Seal the Letter 💌</button>
+    </div>
+  </div>
+</div>
+
+<!-- ────────── SEAL SCREEN ────────── -->
+<div id="seal-screen">
+  <div class="seal-heart">💗</div>
+  <div class="title-script" style="font-size:clamp(2rem,7vw,4rem);text-align:center;">
+    Happy Birthday, Priti!<br>
+    <span style="font-size:0.6em;color:rgba(240,244,255,0.8);">You're so so loved. 🫂✨</span>
+  </div>
+  <div class="subtitle" style="margin-top:20px;max-width:460px;text-align:center;">
+    May this year bring you everything your heart whispers about at 3am.<br>
+    You deserve every beautiful thing. 💫
+  </div>
+  <button class="btn btn-secondary" style="margin-top:36px;" onclick="restart()">Experience again ✨</button>
+</div>
+
+<script>
+/* ─── STATE ─── */
+let currentSection = 's1';
+let cakeStage = 0;
+let musicStarted = false;
+let audioCtx = null;
+let knifeHasCut = false;
+
+/* ─── PARTICLES ─── */
+(function spawnParticles() {
+  const c = document.getElementById('particles');
+  for (let i = 0; i < 40; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 4 + 1.5;
+    p.style.cssText = `
+      width:${size}px;height:${size}px;
+      left:${Math.random()*100}%;
+      top:${90+Math.random()*20}%;
+      --drift:${(Math.random()-0.5)*80}px;
+      animation-duration:${8+Math.random()*14}s;
+      animation-delay:${Math.random()*10}s;
+      opacity:0;
+    `;
+    c.appendChild(p);
+  }
+})();
+
+/* ─── SPARKLES ─── */
+(function spawnSparkles() {
+  for (let i = 0; i < 20; i++) {
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    s.style.cssText = `
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      animation-delay:${Math.random()*3}s;
+      animation-duration:${1.5+Math.random()*2}s;
+    `;
+    document.body.appendChild(s);
+  }
+})();
+
+/* ─── FAIRY LIGHTS — full screen U-frame (top + both sides) ─── */
+function buildUFairyLights() {
+  const svg = document.getElementById('fairy-svg-frame');
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+  const ns = 'http://www.w3.org/2000/svg';
+  const W = window.innerWidth;
+  const H = window.innerHeight;
+
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  // Wire path: top-left → across top (with natural sag dips) → top-right
+  //            then down right side (slight wiggles) → bottom-right
+  //            then across bottom is OPEN (U shape, not closed box)
+  // Left side goes from top-left down to bottom-left
+  // This matches the reference: top wire + left side + right side
+
+  const topSagCount = 10; // number of sag bumps across top
+  const sideBumpCount = 7; // bumps down each side
+
+  // ── Build top wire path with natural catenary sags ──
+  let topD = `M 0,0 `;
+  for (let i = 0; i <= topSagCount; i++) {
+    const x = (i / topSagCount) * W;
+    // Each segment: control point sags downward
+    const cpX = ((i - 0.5) / topSagCount) * W;
+    const cpY = 28 + Math.sin(i * 1.3) * 8 + Math.random() * 6;
+    const endY = 8 + Math.random() * 8;
+    if (i === 0) topD += `L ${x},${endY} `;
+    else topD += `Q ${cpX},${cpY} ${x},${endY} `;
+  }
+
+  // ── Right side wire path (top-right down to bottom-right) ──
+  let rightD = `M ${W},8 `;
+  for (let i = 0; i <= sideBumpCount; i++) {
+    const y = (i / sideBumpCount) * H * 0.92;
+    const cpY = ((i - 0.5) / sideBumpCount) * H * 0.92;
+    const cpX = W - 18 + Math.sin(i * 1.7) * 10;
+    const endX = W - 8 + Math.sin(i * 2.1) * 6;
+    if (i === 0) rightD += `L ${endX},${y} `;
+    else rightD += `Q ${cpX},${cpY} ${endX},${y} `;
+  }
+
+  // ── Left side wire path (top-left down to bottom-left) ──
+  let leftD = `M 0,8 `;
+  for (let i = 0; i <= sideBumpCount; i++) {
+    const y = (i / sideBumpCount) * H * 0.92;
+    const cpY = ((i - 0.5) / sideBumpCount) * H * 0.92;
+    const cpX = 18 + Math.sin(i * 1.7) * 10;
+    const endX = 8 + Math.sin(i * 2.1) * 6;
+    if (i === 0) leftD += `L ${endX},${y} `;
+    else leftD += `Q ${cpX},${cpY} ${endX},${y} `;
+  }
+
+  // Helper: draw wire + dots along a path
+  function drawString(pathD, dotCount) {
+    // Wire
+    const wire = document.createElementNS(ns, 'path');
+    wire.setAttribute('d', pathD);
+    wire.setAttribute('fill', 'none');
+    wire.setAttribute('stroke', '#c89820');
+    wire.setAttribute('stroke-width', '2');
+    wire.setAttribute('opacity', '0.75');
+    svg.appendChild(wire);
+
+    // Measure path length using a temp path
+    const tmp = document.createElementNS(ns, 'path');
+    tmp.setAttribute('d', pathD);
+    tmp.style.position = 'absolute';
+    tmp.style.visibility = 'hidden';
+    svg.appendChild(tmp);
+    const total = tmp.getTotalLength();
+    svg.removeChild(tmp);
+
+    for (let i = 0; i <= dotCount; i++) {
+      const tmp2 = document.createElementNS(ns, 'path');
+      tmp2.setAttribute('d', pathD);
+      svg.appendChild(tmp2);
+      const pt = tmp2.getPointAtLength((i / dotCount) * total);
+      svg.removeChild(tmp2);
+
+      const delay = (Math.random() * 3).toFixed(2) + 's';
+      const dur   = (1.4 + Math.random() * 2).toFixed(2) + 's';
+
+      // Outer soft glow
+      const g1 = document.createElementNS(ns, 'circle');
+      g1.setAttribute('cx', pt.x); g1.setAttribute('cy', pt.y); g1.setAttribute('r', '14');
+      g1.setAttribute('fill', 'rgba(255,200,40,0.12)');
+      g1.classList.add('u-dot');
+      g1.style.setProperty('--ufd', dur);
+      g1.style.animationDelay = delay;
+      svg.appendChild(g1);
+
+      // Mid glow
+      const g2 = document.createElementNS(ns, 'circle');
+      g2.setAttribute('cx', pt.x); g2.setAttribute('cy', pt.y); g2.setAttribute('r', '9');
+      g2.setAttribute('fill', 'rgba(255,210,50,0.30)');
+      g2.classList.add('u-dot');
+      g2.style.setProperty('--ufd', dur);
+      g2.style.animationDelay = delay;
+      svg.appendChild(g2);
+
+      // Bulb body (solid, like reference image)
+      const bulb = document.createElementNS(ns, 'circle');
+      bulb.setAttribute('cx', pt.x); bulb.setAttribute('cy', pt.y); bulb.setAttribute('r', '7');
+      bulb.setAttribute('fill', '#e8d000');
+      bulb.classList.add('u-dot');
+      bulb.style.setProperty('--ufd', dur);
+      bulb.style.animationDelay = delay;
+      svg.appendChild(bulb);
+
+      // Bright hot centre
+      const g3 = document.createElementNS(ns, 'circle');
+      g3.setAttribute('cx', pt.x); g3.setAttribute('cy', pt.y); g3.setAttribute('r', '3.5');
+      g3.setAttribute('fill', '#fffde0');
+      g3.classList.add('u-dot');
+      g3.style.setProperty('--ufd', dur);
+      g3.style.animationDelay = delay;
+      svg.appendChild(g3);
+    }
+  }
+
+  // Draw all three strings
+  drawString(topD, 18);
+  drawString(rightD, 14);
+  drawString(leftD, 14);
+}
+
+/* ─── SECTION NAV ─── */
+function goTo(id) {
+  const current = document.querySelector('.section.active');
+
+  // Fade out current section
+  if (current) {
+    current.style.transition = 'opacity 1.2s ease';
+    current.style.opacity = '0';
+    current.style.pointerEvents = 'none';
+  }
+
+  if (id !== 'cake') stopMic();
+
+  // Handle cake dark overlay
+  const dark = document.getElementById('cake-dark');
+  const fairyFrame = document.getElementById('fairy-lights-cake');
+  if (id === 'cake') {
+    dark.style.display = 'block';
+    dark.classList.remove('lights-on');
+  } else {
+    // fade overlay out instantly when leaving cake
+    dark.style.transition = 'opacity 0s';
+    dark.classList.add('lights-on');
+    setTimeout(() => { dark.style.display = 'none'; }, 50);
+    // hide fairy lights when leaving cake
+    if (fairyFrame) fairyFrame.classList.remove('visible');
+  }
+
+  setTimeout(() => {
+    document.querySelectorAll('.section').forEach(s => {
+      s.classList.remove('active');
+      s.style.opacity = '';
+      s.style.transition = '';
+      s.style.pointerEvents = '';
+    });
+
+    const next = document.getElementById(id);
+    if (!next) return;
+
+    // re-trigger stagger children
+    next.querySelectorAll('.stagger > *').forEach(c => {
+      c.style.animation = 'none';
+      void c.offsetWidth;
+      c.style.animation = '';
+    });
+
+    next.classList.add('active');
+    currentSection = id;
+    if (id === 'cake') initCake();
+    if (id === 's-letter1') setTimeout(() => typeWriter('letter1-text', LETTER1_TEXT, 8), 600);
+    if (id === 's-final')   setTimeout(() => typeWriter('letter2-text', LETTER2_TEXT, 8), 600);
+    if (id === 's-daycounter') animateDayCounter();
+    if (id === 's-timeline') revealTimeline();
+    if (id === 's-lovelist') revealLoveList();
+    updateDots(id);
+  }, 900);
+
+  tryStartMusic();
+}
+
+/* ─── MUSIC ─── */
+function tryStartMusic() {
+  if (musicStarted) return;
+  musicStarted = true;
+  try {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    playAmbient();
+  } catch(e) {}
+}
+function playAmbient() {
+  if (!audioCtx) return;
+  const notes = [261.63, 329.63, 392, 523.25];
+  notes.forEach((freq, i) => {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = freq;
+    gain.gain.value = 0;
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    gain.gain.setTargetAtTime(0.022, audioCtx.currentTime + i * 0.6, 1.2);
+  });
+}
+
+/* ─── CAKE SEQUENCE ─── */
+const cakeButtons = [
+  { label: '💡 Turn on the lights', action: cakeLights    },
+  { label: '🎂 Bring the cake',     action: cakeBring     },
+  { label: '🎀 Decorate',           action: cakeDecorate  },
+  { label: '🕯️ Light the candles',  action: cakeLight     },
+  { label: '🎤 Turn on mic to blow',action: cakeMicBlow   },
+  { label: '🔪 Cut the cake',       action: cakeCut       },
+  { label: '✨ Continue',           action: cakeFinish, secondary: true },
+];
+
+function initCake() {
+  cakeStage = 0;
+  knifeHasCut = false;
+
+  // Reset message
+  const msg = document.getElementById('scene-msg');
+  msg.textContent = ''; msg.style.opacity = '0';
+
+  // Hide cake
+  document.getElementById('table-wrap').style.opacity = '0';
+
+  // Ensure dark overlay is fully black
+  const dark = document.getElementById('cake-dark');
+  dark.style.display = 'block';
+  dark.style.transition = 'none';
+  dark.classList.remove('lights-on');
+
+  // Reset bg
+  document.getElementById('bg').classList.remove('lit');
+
+  // Reset fairy lights
+  const fl = document.getElementById('fairy-lights-cake');
+  if (fl) fl.classList.remove('visible');
+  const fsv = document.getElementById('fairy-svg-frame');
+  if (fsv) while (fsv.firstChild) fsv.removeChild(fsv.firstChild);
+
+  // Hide all flames
+  ['flame1','flame2','flame3','flame4','flame5'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.classList.remove('lit'); el.classList.remove('out'); }
+  });
+
+  // Reset cut lines
+  const cl = document.getElementById('cut-lines');
+  if (cl) cl.classList.remove('show');
+
+  // Hide knife
+  const kw = document.getElementById('knife-wrap');
+  if (kw) { kw.classList.remove('visible'); }
+  const kh = document.getElementById('knife-hint');
+  if (kh) kh.classList.remove('visible');
+
+  renderCakeBtn();
+}
+
+/* Render button with smooth fade-in, fade-out old button first */
+function renderCakeBtn() {
+  const wrap = document.getElementById('cake-btn-wrap');
+  const old = wrap.querySelector('.btn');
+
+  function showNext() {
+    wrap.innerHTML = '';
+    if (cakeStage >= cakeButtons.length) return;
+    const cfg = cakeButtons[cakeStage];
+    const b = document.createElement('button');
+    b.className = 'btn' + (cfg.secondary ? ' btn-secondary' : '');
+    b.textContent = cfg.label;
+    b.onclick = () => {
+      b.classList.remove('btn-appear');
+      b.classList.add('btn-disappear');
+      setTimeout(() => {
+        cakeStage++;
+        cfg.action();
+        renderCakeBtn();
+      }, 550);
+    };
+    wrap.appendChild(b);
+    // Trigger appear animation next frame
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => { b.classList.add('btn-appear'); });
+    });
+  }
+
+  if (old) {
+    old.classList.add('btn-disappear');
+    setTimeout(showNext, 560);
+  } else {
+    setTimeout(showNext, 120);
+  }
+}
+
+function cakeLights() {
+  // Fade dark overlay away → background revealed
+  const dark = document.getElementById('cake-dark');
+  dark.style.transition = 'opacity 2.4s cubic-bezier(0.4,0,0.2,1)';
+  dark.classList.add('lights-on');
+  document.getElementById('bg').classList.add('lit');
+}
+
+function cakeBring() {
+  document.getElementById('table-wrap').style.opacity = '1';
+}
+
+function cakeDecorate() {
+  buildUFairyLights();
+  setTimeout(() => {
+    document.getElementById('fairy-lights-cake').classList.add('visible');
+  }, 150);
+}
+
+function cakeLight() {
+  // Light candles one by one with staggered delay
+  ['flame1','flame2','flame3','flame4','flame5'].forEach((id, i) => {
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('lit');
+    }, i * 260);
+  });
+  setTimeout(() => setMsg('Happy Birthday Priti!! 🫂💗'), 1400);
+}
+
+/* ── MIC BLOW DETECTION ── */
+let micStream = null;
+let micAnalyser = null;
+let blowCheckTimer = null;
+let blowBaselineSum = 0;
+let blowBaselineCount = 0;
+let blowBaseline = 0;
+let blowListening = false;
+
+function cakeMicBlow() {
+  setMsg('🎤 Listening... blow into your mic! 💨');
+
+  // Update the current button text live
+  const btnWrap = document.getElementById('cake-btn-wrap');
+  const existingBtn = btnWrap.querySelector('.btn');
+  if (existingBtn) {
+    existingBtn.textContent = '💨 Blow now! (or tap to skip)';
+    existingBtn.onclick = () => {
+      stopMic();
+      blowOutCandles();
+      cakeStage++;
+      renderCakeBtn();
+    };
+  }
+
+  navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+    .then(stream => {
+      micStream = stream;
+
+      // Use existing audioCtx if available, else create
+      const ctx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const source = ctx.createMediaStreamSource(stream);
+      micAnalyser = ctx.createAnalyser();
+      micAnalyser.fftSize = 256;
+      micAnalyser.smoothingTimeConstant = 0.4;
+      source.connect(micAnalyser);
+
+      const dataArray = new Uint8Array(micAnalyser.frequencyBinCount);
+      blowListening = true;
+      blowBaselineSum = 0;
+      blowBaselineCount = 0;
+      blowBaseline = 0;
+
+      let calibrating = true;
+      // Calibrate ambient noise for 1.2 seconds first
+      const calibrateTimer = setInterval(() => {
+        micAnalyser.getByteFrequencyData(dataArray);
+        const avg = dataArray.reduce((a,b) => a + b, 0) / dataArray.length;
+        blowBaselineSum += avg;
+        blowBaselineCount++;
+      }, 80);
+
+      setTimeout(() => {
+        clearInterval(calibrateTimer);
+        blowBaseline = (blowBaselineSum / blowBaselineCount) || 8;
+        calibrating = false;
+        setMsg('🎤 Now blow!! 💨🕯️');
+
+        // Start listening for blow — a blow is a sustained volume spike
+        let spikeCount = 0;
+        blowCheckTimer = setInterval(() => {
+          if (!blowListening) { clearInterval(blowCheckTimer); return; }
+          micAnalyser.getByteFrequencyData(dataArray);
+          const avg = dataArray.reduce((a,b) => a + b, 0) / dataArray.length;
+          const threshold = blowBaseline * 2.8 + 12; // must be significantly louder than ambient
+
+          if (avg > threshold) {
+            spikeCount++;
+            // Require 3 consecutive spikes — rules out claps/taps, catches sustained blow
+            if (spikeCount >= 3) {
+              clearInterval(blowCheckTimer);
+              blowListening = false;
+              stopMic();
+              blowOutCandles();
+              // Advance cake stage
+              cakeStage++;
+              renderCakeBtn();
+            }
+          } else {
+            spikeCount = Math.max(0, spikeCount - 1);
+          }
+        }, 60);
+
+      }, 1200);
+    })
+    .catch(err => {
+      // Mic denied or unavailable — fallback to tap
+      setMsg('Mic not available 🥲 Tap to blow! 💨');
+      const btn = document.getElementById('cake-btn-wrap').querySelector('.btn');
+      if (btn) {
+        btn.textContent = '💨 Tap to blow the candles';
+        btn.onclick = () => {
+          blowOutCandles();
+          cakeStage++;
+          renderCakeBtn();
+        };
+      }
+    });
+}
+
+function stopMic() {
+  blowListening = false;
+  if (blowCheckTimer) { clearInterval(blowCheckTimer); blowCheckTimer = null; }
+  if (micStream) {
+    micStream.getTracks().forEach(t => t.stop());
+    micStream = null;
+  }
+}
+
+function blowOutCandles() {
+  // Candles flicker then blow out one by one
+  ['flame1','flame2','flame3','flame4','flame5'].forEach((id, i) => {
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      // Quick flicker before going out
+      el.style.transition = 'opacity 0.15s ease';
+      let flickers = 0;
+      const flick = setInterval(() => {
+        el.style.opacity = flickers % 2 === 0 ? '0.3' : '1';
+        flickers++;
+        if (flickers >= 5) {
+          clearInterval(flick);
+          el.classList.remove('lit');
+          el.classList.add('out');
+          el.style.transition = '';
+          el.style.opacity = '';
+        }
+      }, 80);
+    }, i * 280);
+  });
+  setTimeout(() => setMsg('Make a wish... 🌠'), 1600);
+}
+
+function cakeCut() {
+  setMsg('Drag the knife to cut wherever you like! 🔪');
+  // Show knife
+  const kw = document.getElementById('knife-wrap');
+  const kh = document.getElementById('knife-hint');
+  setTimeout(() => {
+    kw.classList.add('visible');
+    kh.classList.add('visible');
+  }, 400);
+  setupKnife();
+}
+
+function cakeFinish() {
+  launchConfetti();
+  setTimeout(() => goTo('s-wish'), 2400);
+}
+
+/* ─── KNIFE DRAG ─── */
+function setupKnife() {
+  const knife = document.getElementById('knife-wrap');
+  const tableWrap = document.getElementById('table-wrap');
+  const svg = document.getElementById('cake-svg');
+  const cutGroup = document.getElementById('cut-lines');
+
+  let dragging = false;
+  let startX, startY, origLeft, origTop;
+
+  function getPos(e) {
+    if (e.touches) return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    return { x: e.clientX, y: e.clientY };
+  }
+
+  function onStart(e) {
+    dragging = true;
+    e.preventDefault();
+    const pos = getPos(e);
+    startX = pos.x; startY = pos.y;
+    const rect = knife.getBoundingClientRect();
+    origLeft = rect.left + rect.width / 2;
+    origTop  = rect.top  + rect.height / 2;
+    knife.style.transition = 'none';
+  }
+
+  function onMove(e) {
+    if (!dragging) return;
+    e.preventDefault();
+    const pos = getPos(e);
+    const dx = pos.x - startX;
+    const dy = pos.y - startY;
+
+    // Move knife
+    knife.style.transform = `translateX(calc(-50% + ${dx}px)) translateY(${dy}px) rotate(${dx * 0.15}deg)`;
+
+    // Check if knife overlaps the cake SVG
+    if (!knifeHasCut && svg) {
+      const svgRect = svg.getBoundingClientRect();
+      const kRect = knife.getBoundingClientRect();
+      const kCenterX = kRect.left + kRect.width / 2;
+      const kTipY   = kRect.top;
+      if (
+        kCenterX > svgRect.left + svgRect.width * 0.1 &&
+        kCenterX < svgRect.right - svgRect.width * 0.1 &&
+        kTipY < svgRect.top + svgRect.height * 0.5
+      ) {
+        knifeHasCut = true;
+        // Draw cut based on X position within cake
+        const relX = (kCenterX - svgRect.left) / svgRect.width; // 0–1
+        const svgX = 54 + relX * 212; // mapped to SVG coords (bottom layer x range)
+        drawCut(svgX);
+      }
+    }
+  }
+
+  function onEnd(e) {
+    if (!dragging) return;
+    dragging = false;
+    // Spring back
+    knife.style.transition = 'transform 0.8s cubic-bezier(0.34,1.4,0.64,1)';
+    knife.style.transform = 'translateX(-50%)';
+  }
+
+  knife.addEventListener('mousedown',  onStart, { passive: false });
+  knife.addEventListener('touchstart',  onStart, { passive: false });
+  document.addEventListener('mousemove', onMove,  { passive: false });
+  document.addEventListener('touchmove',  onMove,  { passive: false });
+  document.addEventListener('mouseup',   onEnd);
+  document.addEventListener('touchend',  onEnd);
+}
+
+/* Draw a custom cut on the SVG cake at svgX coordinate */
+function drawCut(svgX) {
+  const cutGroup = document.getElementById('cut-lines');
+  // Clear existing cut children
+  while (cutGroup.firstChild) cutGroup.removeChild(cutGroup.firstChild);
+
+  const ns = 'http://www.w3.org/2000/svg';
+  const clampedX = Math.max(110, Math.min(210, svgX));
+
+  // Top cut lines from top of top-layer down through all layers
+  const points = [
+    [clampedX, 97],   // top of top layer
+    [clampedX - 6, 165], // bottom of top layer
+    [clampedX - 10, 233], // bottom of mid layer
+    [clampedX - 14, 308], // bottom of bot layer
+  ];
+
+  // Left cut
+  const leftPts = points.map(([x,y]) => `${x - 2},${y}`).join(' ');
+  // Right cut
+  const rightPts = points.map(([x,y]) => `${x + 2},${y}`).join(' ');
+
+  // Filled slice triangle (exposed sponge)
+  const sliceFill = document.createElementNS(ns, 'polygon');
+  sliceFill.setAttribute('points', `${clampedX},97 ${clampedX-16},308 ${clampedX+16},308 ${clampedX+4},165 ${clampedX},97`);
+  sliceFill.setAttribute('fill', '#e85070');
+  sliceFill.setAttribute('opacity', '0.45');
+  cutGroup.appendChild(sliceFill);
+
+  // Sponge layer lines inside cut
+  [[130, clampedX - 8, clampedX + 8],
+   [148, clampedX - 11, clampedX + 11],
+   [200, clampedX - 8, clampedX + 8],
+   [220, clampedX - 11, clampedX + 11],
+   [270, clampedX - 12, clampedX + 12],
+   [290, clampedX - 13, clampedX + 13]
+  ].forEach(([y, x1, x2]) => {
+    const ln = document.createElementNS(ns, 'line');
+    ln.setAttribute('x1', x1); ln.setAttribute('y1', y);
+    ln.setAttribute('x2', x2); ln.setAttribute('y2', y);
+    ln.setAttribute('stroke', '#fff0f4');
+    ln.setAttribute('stroke-width', '3');
+    ln.setAttribute('opacity', '0.5');
+    cutGroup.appendChild(ln);
+  });
+
+  // Cut edge lines
+  [leftPts, rightPts].forEach(pts => {
+    const pl = document.createElementNS(ns, 'polyline');
+    pl.setAttribute('points', pts);
+    pl.setAttribute('stroke', 'rgba(255,255,255,0.75)');
+    pl.setAttribute('stroke-width', '1.5');
+    pl.setAttribute('fill', 'none');
+    pl.setAttribute('stroke-dasharray', '5,3');
+    cutGroup.appendChild(pl);
+  });
+
+  cutGroup.classList.add('show');
+  setMsg('Beautiful cut! Time to celebrate! 🎉💗');
+
+  // Advance to next button after cut
+  setTimeout(() => {
+    if (cakeStage === 6) renderCakeBtn();
+  }, 800);
+}
+
+function setMsg(text) {
+  const el = document.getElementById('scene-msg');
+  el.style.transition = 'opacity 0.6s ease';
+  el.style.opacity = '0';
+  setTimeout(() => {
+    el.textContent = text;
+    el.style.transition = 'opacity 1.4s ease';
+    el.style.opacity = text ? '1' : '0';
+  }, 500);
+}
+
+/* ─── CONFETTI ─── */
+function launchConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const colors = ['#e8a0b4','#f0c060','#aaddff','#c3f0c0','#ffaadd','#fff3b0','#ffccee'];
+  const pieces = Array.from({length: 180}, () => ({
+    x: Math.random() * canvas.width,
+    y: -20 - Math.random() * 120,
+    w: 6 + Math.random() * 8,
+    h: 10 + Math.random() * 8,
+    r: Math.random() * Math.PI * 2,
+    dr: (Math.random() - 0.5) * 0.12,
+    vx: (Math.random() - 0.5) * 2.5,
+    vy: 1.5 + Math.random() * 3,
+    color: colors[Math.floor(Math.random()*colors.length)],
+    alpha: 1,
+  }));
+
+  let frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.r += p.dr;
+      if (p.y > canvas.height * 0.65) p.alpha = Math.max(0, p.alpha - 0.014);
+      ctx.save();
+      ctx.globalAlpha = p.alpha;
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.r);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+    });
+    frame++;
+    if (frame < 220) requestAnimationFrame(draw);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw();
+}
+
+/* ─── SEAL ─── */
+function sealLetter() {
+  document.getElementById('seal-screen').classList.add('active');
+  launchConfetti();
+}
+
+/* ─── RESTART ─── */
+function restart() {
+  document.getElementById('seal-screen').classList.remove('active');
+  document.getElementById('bg').classList.remove('lit');
+  const fl2 = document.getElementById('fairy-lights-cake');
+  if (fl2) fl2.classList.remove('visible');
+  ['flame1','flame2','flame3','flame4','flame5'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.classList.remove('lit'); el.classList.remove('out'); }
+  });
+  const cl = document.getElementById('cut-lines');
+  if (cl) cl.classList.remove('show');
+  setTimeout(() => goTo('s1'), 300);
+}
+
+/* ─── TYPING EFFECT ─── */
+const LETTER1_TEXT = [
+  'Dear Priti,',
+  '',
+  '[Replace this with your personal message. Write something heartfelt and beautiful for your bestie. Tell her how much she means to you, your favourite memories, how she makes your life brighter every single day. ✨]',
+  '',
+  '[You can write as much as you want — this card scrolls! Pour your heart out here. She deserves every word. 💗]',
+  '',
+  'With all my love,',
+  'Your Bestie 🫂'
+];
+
+const LETTER2_TEXT = [
+  'Priti,',
+  '',
+  '[This is your final letter — your closing thoughts, your deepest wishes for her. Tell her what she means to you in the biggest, most beautiful way you can.]',
+  '',
+  '[Maybe tell her how proud you are of her, how excited you are for her future, how lucky you feel to have her in your life.]',
+  '',
+  '[End it in a way only you would — something she\'ll remember forever. 💗]',
+  '',
+  'Forever yours,',
+  'Your Bestie 🫂✨'
+];
+
+let typeTimer = null;
+
+function typeWriter(targetId, lines, speedMs = 28) {
+  const el = document.getElementById(targetId);
+  if (!el) return;
+  el.innerHTML = '';
+  if (typeTimer) clearInterval(typeTimer);
+
+  // Flatten lines into tokens: chars + newlines
+  const tokens = [];
+  lines.forEach((line, li) => {
+    for (const ch of line) tokens.push({ type: 'char', val: ch });
+    if (li < lines.length - 1) tokens.push({ type: 'br' });
+  });
+
+  // Add blinking cursor
+  const cursor = document.createElement('span');
+  cursor.className = 'typed-cursor';
+  el.appendChild(cursor);
+
+  let i = 0;
+  typeTimer = setInterval(() => {
+    if (i >= tokens.length) {
+      clearInterval(typeTimer);
+      cursor.remove();
+      return;
+    }
+    const tok = tokens[i];
+    if (tok.type === 'br') {
+      cursor.insertAdjacentHTML('beforebegin', '<br>');
+    } else {
+      cursor.insertAdjacentText('beforebegin', tok.val);
+    }
+    // Auto-scroll the card
+    const card = el.closest('.scroll-card');
+    if (card) card.scrollTop = card.scrollHeight;
+    i++;
+  }, speedMs);
+}
+(function initLoader() {
+  const bar = document.getElementById('loading-bar');
+  const screen = document.getElementById('loading-screen');
+  // Start bar
+  requestAnimationFrame(() => { bar.style.width = '100%'; });
+  setTimeout(() => {
+    screen.classList.add('fade-out');
+    setTimeout(() => {
+      screen.style.display = 'none';
+      document.getElementById('progress-dots').classList.add('visible');
+    }, 1300);
+  }, 2600);
+})();
+
+/* ─── PROGRESS DOTS ─── */
+const SECTION_ORDER = ['s1','s2','s3','s-letter1','s-gallery','s-apsaraa','cake','s-wish','s-memories','s-timeline','s-daycounter','s-final'];
+(function buildDots() {
+  const wrap = document.getElementById('progress-dots');
+  SECTION_ORDER.forEach((id, i) => {
+    const d = document.createElement('div');
+    d.className = 'pdot';
+    d.id = 'pdot-' + i;
+    wrap.appendChild(d);
+  });
+})();
+
+function updateDots(sectionId) {
+  const idx = SECTION_ORDER.indexOf(sectionId);
+  document.querySelectorAll('.pdot').forEach((d, i) => {
+    d.classList.toggle('active', i === idx);
+  });
+}
+
+/* ─── YEAR COUNTER ANIMATION ─── */
+function animateDayCounter() {
+  const el = document.getElementById('day-count');
+  if (!el) return;
+  el.textContent = '0';
+  let current = 0;
+  const timer = setInterval(() => {
+    current++;
+    el.textContent = current;
+    if (current >= 10) clearInterval(timer);
+  }, 150);
+}
+
+/* ─── TIMELINE REVEAL ─── */
+function revealTimeline() {
+  const items = document.querySelectorAll('.tl-item');
+  items.forEach((item, i) => {
+    setTimeout(() => item.classList.add('tl-visible'), i * 120);
+  });
+}
+
+/* ─── LOVE LIST REVEAL ─── */
+function revealLoveList() {
+  const items = document.querySelectorAll('.love-item');
+  items.forEach((item, i) => {
+    setTimeout(() => item.classList.add('love-visible'), i * 160);
+  });
+}
+
+/* ─── INIT ─── */
+// Hide dark overlay initially (only show when entering cake)
+const darkEl = document.getElementById('cake-dark');
+darkEl.style.display = 'none';
+
+goTo('s1');
+</script>
+</body>
+</html>
