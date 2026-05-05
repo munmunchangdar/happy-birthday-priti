@@ -1578,12 +1578,12 @@ function cakeMicBlow() {
           if (!blowListening) { clearInterval(blowCheckTimer); return; }
           micAnalyser.getByteFrequencyData(dataArray);
           const avg = dataArray.reduce((a,b) => a + b, 0) / dataArray.length;
-          const threshold = blowBaseline * 2.8 + 12; // must be significantly louder than ambient
+          const threshold = blowBaseline * 1.8 + 8; // must be significantly louder than ambient
 
           if (avg > threshold) {
             spikeCount++;
             // Require 3 consecutive spikes — rules out claps/taps, catches sustained blow
-            if (spikeCount >= 3) {
+            if (spikeCount >= 2) {
               clearInterval(blowCheckTimer);
               blowListening = false;
               stopMic();
