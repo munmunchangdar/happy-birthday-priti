@@ -1582,7 +1582,7 @@ function cakeMicBlow() {
           const lowEnergy = dataArray.slice(0, lowBins).reduce((a,b) => a + b, 0) / lowBins;
           const threshold = blowBaseline * 1.1 + 2 // must be significantly louder than ambient
 
-          if (avg > threshold || lowEnergy > threshold * 0.75) {
+          if (avg > blowBaseline + 1) {
             spikeCount++;
             // Require 3 consecutive spikes — rules out claps/taps, catches sustained blow
             if (spikeCount >= 2) {
